@@ -1,32 +1,35 @@
 $(document).ready(function() {
-    var dragging = false;
-    var lastX, lastY;
-    var imagen = $("#imagen");
+    var container = $('#container');
+    var imagen = $('#imagen');
+    var isDragging = false;
+    var mouseStart = {x: 0, y: 0};
+    var elementStart = {x: 0, y: 0};
   
-    imagen.mousedown(function(e) {
-      dragging = true;
-      lastX = e.clientX;
-      lastY = e.clientY;
+    imagen.mousedown(function(event) {
+      isDragging = true;
+      mouseStart.x = event.pageX;
+      mouseStart.y = event.pageY;
+      elementStart.x = imagen.offset().left - container.offset().left;
+      elementStart.y = imagen.offset().top - container.offset().top;
     });
   
-    $(document).mousemove(function(e) {
-      if (dragging) {
-        var deltaX = e.clientX - lastX;
-        var deltaY = e.clientY - lastY;
-        var offset = imagen.offset();
-        imagen.offset({
-          top: offset.top + deltaY,
-          left: offset.left + deltaX
-        });
-        lastX = e.clientX;
-        lastY = e.clientY;
-        var posicion = "Posición actual: (" + offset.left + ", " + offset.top + ")";
-        $("#posicion").text(posicion);
+    imagen.mouseup(function() {
+      isDragging = false;
+    });
+  
+    imagen.mousemove(function(event) {
+      if (isDragging) {
+        var offsetX = event.pageX - mouseStart.x;
+        var offsetY = event.pageY - mouseStart.y;
+        var posX = elementStart.x + offsetX;
+        var posY = elementStart.y + offsetY;
+  
+        // Limita el movimiento a los bordes del contenedor
+        posX = Math.max(0, Math.min(container.width() - imagen.width(), posX));
+        posY = Math.max(0, Math.min(container.height() - imagen.height(), posY));
+  
+        imagen.offset({left: container.offset().left + posX, top: container.offset().top + posY});
       }
-    });
-  
-    $(document).mouseup(function() {
-      dragging = false;
     });
   });
   
