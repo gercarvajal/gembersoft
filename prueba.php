@@ -26,7 +26,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="resource/js/css/style.css" rel="stylesheet">
-    <audio src="resource/musica/muxi.mp3" loop="3" autoplay="true"></audio>
+    <audio src="resource/musica/violin.mp3" loop="3" autoplay="true"></audio>
 </head>
 
 
