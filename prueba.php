@@ -26,7 +26,9 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="resource/js/css/style.css" rel="stylesheet">
+    <audio src="resource/musica/muxi.mp3" loop="3" autoplay="true"></audio>
 </head>
+
 
 <body>
     <!-- Topbar Start -->

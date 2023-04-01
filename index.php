@@ -4,16 +4,9 @@
     <meta charset="utf-8">
     <title>MJ-Marmol</title>
     <link href="resource/js/css/a.css" rel="stylesheet">
-</head>
+    <audio src="resource/musica/muxi.mp3" loop="3" autoplay="true"></audio>
+  </head>
 <body>
-<audio src="resource/musica/music.mp3" autoplay="autoplay" loop="loop"></audio>
-<audio src="resource/musica/music.mp3"autoplay="autoplay" loop="loop"></audio>
-<embed src="https://www.youtube.com/watch?v=z7rxl5KsPjs" autostarty="true" loop= "true" volume="80" width="0" height="0">
-<audio src="resource/musica/muxi.mp3" loop="3" autoplay="true"></audio>
-<audio src="resource/musica/music.mp3" autoplay="autoplay"></audio>
-<audio autoplay="true" loop="4" src="https://www.youtube.com/watch?v=z7rxl5KsPjs"></audio>
-<embed src="resource/musica/music.mp3"src="resource/musica/music.mp3" autostart="auto" loop="infinite" hidden="true">
-
 <div role="img" aria-label="Animated cartoon: Death (a cloaked skeleton with a scythe) receives a text message from JavaScript saying 'CSS is dead!' Disappointed, Death sighs: That guy is so annoying... Maybe it's time I take anohter of its frameworks away...">
   <section>
     <div class="ring"></div>
