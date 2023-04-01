@@ -71,7 +71,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Mi cuenta</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="blog.html" class="dropdown-item">Registrase</a>
-                            <a href="Prueba2.php" class="dropdown-item">Mi carrito</a>
+                            <a href="single.html" class="dropdown-item">Mi carrito</a>
                             <a href="Mover_imagen.php" class="dropdown-item">Crea tu</a>
                         </div>
                     </div>
@@ -88,21 +88,7 @@
     
 
     <!-- PRODUCT SECTION -->
-    <section class="container section-3">
-      <!-- product - 1 -->
-      <div class="product product-1">
-        <img src="resource/images/logo.jpeg" alt="computer to sell" class="product-img">
-        <span class="product_add_cart">ADD TO CART</span>
-      </div>
-      <div class="product product-1">
-        <img src="resource/images/logo.jpeg" alt="computer to sell" class="product-img">
-        <span class="product_add_cart">ADD TO CART</span>
-      </div>
-      <div class="product product-1">
-        <img src="resource/images/logo.jpeg" alt="computer to sell" class="product-img">
-        <span class="product_add_cart">ADD TO CART</span>
-      </div>
-    </section>
+  
 
         
     <!-- Footer End -->
