@@ -1,29 +1,65 @@
+const html = document.documentElement;
+const body = document.body;
+const menuLinks = document.querySelectorAll(".admin-menu a");
+const collapseBtn = document.querySelector(".admin-menu .collapse-btn");
+const toggleMobileMenu = document.querySelector(".toggle-mob-menu");
+const switchInput = document.querySelector(".switch input");
+const switchLabel = document.querySelector(".switch label");
+const switchLabelText = switchLabel.querySelector("span:last-child");
+const collapsedClass = "collapsed";
+const lightModeClass = "light-mode";
 
-'use strict'
+/*TOGGLE HEADER STATE*/
+collapseBtn.addEventListener("click", function () {
+  body.classList.toggle(collapsedClass);
+  this.getAttribute("aria-expanded") == "true"
+    ? this.setAttribute("aria-expanded", "false")
+    : this.setAttribute("aria-expanded", "true");
+  this.getAttribute("aria-label") == "collapse menu"
+    ? this.setAttribute("aria-label", "expand menu")
+    : this.setAttribute("aria-label", "collapse menu");
+});
 
-const menuToggle = document.querySelector('.menu-toggle');
-const bxMenu = document.querySelector('.bx-menu');
-const bxX = document.querySelector('.bx-x');
+/*TOGGLE MOBILE MENU*/
+toggleMobileMenu.addEventListener("click", function () {
+  body.classList.toggle("mob-menu-opened");
+  this.getAttribute("aria-expanded") == "true"
+    ? this.setAttribute("aria-expanded", "false")
+    : this.setAttribute("aria-expanded", "true");
+  this.getAttribute("aria-label") == "open menu"
+    ? this.setAttribute("aria-label", "close menu")
+    : this.setAttribute("aria-label", "open menu");
+});
 
-const navBar = document.querySelector('.navbar');
-
-// --- open menu ---
-
-bxMenu.addEventListener('click', (e)=> {
-    if(e.target.classList.contains('bx-menu')){
-        navBar.classList.add('show-navbar');
-        bxMenu.classList.add('hide-bx');
-        bxX.classList.add('show-bx');
+/*SHOW TOOLTIP ON MENU LINK HOVER*/
+for (const link of menuLinks) {
+  link.addEventListener("mouseenter", function () {
+    if (
+      body.classList.contains(collapsedClass) &&
+      window.matchMedia("(min-width: 768px)").matches
+    ) {
+      const tooltip = this.querySelector("span").textContent;
+      this.setAttribute("title", tooltip);
+    } else {
+      this.removeAttribute("title");
     }
-})
+  });
+}
 
-// --- close menu ---
+/*TOGGLE LIGHT/DARK MODE*/
+if (localStorage.getItem("dark-mode") === "false") {
+  html.classList.add(lightModeClass);
+  switchInput.checked = false;
+  switchLabelText.textContent = "Light";
+}
 
-bxX.addEventListener('click', (e)=> {
-    if(e.target.classList.contains('bx-x')){
-        navBar.classList.remove('show-navbar');
-        bxMenu.classList.remove('hide-bx');
-        bxX.classList.remove('show-bx');
-    }
-})
-
+switchInput.addEventListener("input", function () {
+  html.classList.toggle(lightModeClass);
+  if (html.classList.contains(lightModeClass)) {
+    switchLabelText.textContent = "Light";
+    localStorage.setItem("dark-mode", "false");
+  } else {
+    switchLabelText.textContent = "Dark";
+    localStorage.setItem("dark-mode", "true");
+  }
+});
