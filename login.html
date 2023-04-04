@@ -15,19 +15,29 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form">
+
+
+
+
+          <form method="post" action="procesar_login.php" class="sign-in-form">
             <h2 class="title">Bienvenido</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Correo" />
+              <input name="txtcorreo" type="text" placeholder="Correo" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Contraseña" />
+              <input name="txtpassword" type="password" placeholder="Contraseña" />
             </div>
             <a href="#">Recuperar Clave</a>
             <input type="submit" value="Conectar" class="btn solid" />
           </form>
+
+
+
+
+
+
           <form action="#" class="sign-up-form">
             <h2 class="title">Registrarse</h2>
             <div class="input-field">
