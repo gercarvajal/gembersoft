@@ -1,3 +1,11 @@
+<?php
+include 'conexion.php';//llamo a la conexion
+
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <link href="resource/css/admin.css" rel="stylesheet">
