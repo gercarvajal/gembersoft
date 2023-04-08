@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,16 +8,13 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="resource/css/style.css" />
-    <link rel="icon" type="image/x-icon" href="resource/img/favicon2.ico">
-    <title>Formulario</title>
+    <link rel="icon" type="image/x-icon" href="resource/images/Iconos/favicon2.ico">
+    <title>Formularios</title>
   </head>
   <body>
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-
-
-
 
           <form method="post" action="procesar_login.php" class="sign-in-form">
             <h2 class="title">Bienvenido</h2>
@@ -32,12 +29,6 @@
             <a href="#">Recuperar Clave</a>
             <input type="submit" value="Conectar" class="btn solid" />
           </form>
-
-
-
-
-
-
           <form method="post"action="procesausuario.php" class="sign-up-form">
             <h2 class="title">Registrarse</h2>
             <div class="input-field">
@@ -96,7 +87,7 @@
               Registrarse
             </button>
           </div>
-          <img src="resource/img/logo2.png" class="image" alt=""/>
+          <img src="resource/images/Iconos/logo2.png" class="image" alt=""/>
         </div>
         <div class="panel right-panel">
           <div class="content">
@@ -108,7 +99,7 @@
               Conectarse
             </button>
           </div>
-          <img src="resource/img/cementerio.svg" class="image" alt="" />
+          <img src="resource/images/Iconos/cementerio.svg" class="image" alt="" />
         </div>
       </div>
     </div>
