@@ -12,7 +12,7 @@
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
             <a href="" class="navbar-brand d-block d-lg-none">
-       
+
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -65,7 +65,7 @@
                             <a href="single.html" class="dropdown-item">p2</a>
                         </div>
                     </div>
-                   
+
                     <a href="price.html" class="nav-item nav-link">Contactos</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Mi cuenta</a>
@@ -75,9 +75,15 @@
                             <a href="Mover_imagen.php" class="dropdown-item">Crea tu</a>
                         </div>
                     </div>
-                   
+
                 </div>
-            
+                <div class="row py-3 px-lg-5">
+                    <div class="col-lg-4">
+                        <a href="" class="navbar-brand d-none d-lg-block">
+                            <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">MJ</span><span style="color:white">Marmol</span></h1>
+                        </a>
+                    </div>
+                </div>
             </div>
         </nav>
     </div>
@@ -85,12 +91,12 @@
 
 
     <!-- Carousel Start -->
-    
+
 
     <!-- PRODUCT SECTION -->
-  
 
-        
+
+
     <!-- Footer End -->
 
 
