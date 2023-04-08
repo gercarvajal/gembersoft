@@ -2,9 +2,9 @@
 include 'conexion.php';//llamo a la conexion
 
 session_start();
-
+//mala tu wea no sirve 
 $correo = $_POST["txtcorreo"];//creo las variables (txt es de los formularios)
-$pass = $_POST["txtpassword"];
+$pass = md5($_POST["txtpassword"]);
 
 
 //llamo los datos a la base de datos 

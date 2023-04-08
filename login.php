@@ -38,7 +38,7 @@
 
 
 
-          <form action="#" class="sign-up-form">
+          <form method="post"action="procesausuario.php" class="sign-up-form">
             <h2 class="title">Registrarse</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
