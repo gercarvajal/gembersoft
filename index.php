@@ -19,7 +19,7 @@
       <span>llego la hora</span>
     </div>
     <div class="sigh">
-        la mejor paguina de venta de lapidas 
+        la mejor pagina de venta de lapidas 
     <a class="boton" href="prueba.php">click aqui</a>
     </div>
 
