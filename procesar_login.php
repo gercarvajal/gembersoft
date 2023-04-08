@@ -8,7 +8,7 @@ $pass = md5($_POST["txtpassword"]);
 
 
 //llamo los datos a la base de datos 
-$query = mysqli_query($con	n,"SELECT * FROM usuario WHERE Correo = '".$correo."' and Clave = '".$pass."'");
+$query = mysqli_query($conn,"SELECT * FROM usuario WHERE Correo = '".$correo."' and Clave = '".$pass."'");
 
 $nr = mysqli_num_rows($query);
 
@@ -24,7 +24,7 @@ if($nr == 1)
 else if ($nr == 0) 
 {
 	
-	echo "<script> alert('Error');window.location= 'login.html' </script>";
+	echo "<script> alert('Error');window.location= 'login.php' </script>";
 }
 
 ?>

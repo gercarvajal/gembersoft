@@ -2,7 +2,9 @@
 //conectamos la bd
 include 'conexion.php';
 //llamamos la tabla de la bd
-$sql="SELECT * FROM usuario";
+$id=$_GET["idUsuario"];
+
+$sql="SELECT * FROM usuario WHERE idUsuario='$id'";
 //comparamos para mostrar resultados 
 $result=mysqli_query($conn, $sql);
 ?>  
@@ -30,20 +32,9 @@ $result=mysqli_query($conn, $sql);
         <h3>Administrador</h3>
       </li>
       <li>
-        <a href="#usuarios"><span class="material-symbols-outlined">group_add</span>Usuarios</a>
+        <a href="prueba.php"><span class="material-symbols-outlined">group_add</span>VOLVER</a>
       </li>
-      <li>
-        <a href="#0"><span class="material-symbols-outlined">add_photo_alternate</span><span>imagenes</span></a>
-      </li>
-      <li>
-        <a href="#0"><span class="material-symbols-outlined">gallery_thumbnail</span><span>Coleccion</span></a>
-      </li>
-      <li>
-        <a href="#0"><span class="material-symbols-outlined">local_shipping</span><span>Pedidos</span></a>
-      </li>
-      <li>
-        <a href="#0"><span class="material-symbols-outlined">arrow_back</span><span>volver</span></a>
-      </li>
+      
       <li>
       <li>
       <a href="index.html" aria-expanded="true" aria-label="collapse menu"><span class="material-symbols-outlined">logout</span>Salir</a>
@@ -62,6 +53,24 @@ $result=mysqli_query($conn, $sql);
 
 
 </header>
+<style>
+  body{
+    overflow:hidden;
+  }
+  .div1{
+      width: 150%;
+ }
+ .button {
+  background-color: #e6621f; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
 <section class="page-content">
   <section class="search-and-user">
    
@@ -80,7 +89,7 @@ $result=mysqli_query($conn, $sql);
   
 
 <div class="div1">
-
+<form action="P_Actua.php" method="POST">
 <table class="container">
   
   <h2 class="usuarios">USUARIOS</h2><br><br>
@@ -93,32 +102,31 @@ $result=mysqli_query($conn, $sql);
 			<th><h1>Correo</h1></th>
 			<th><h1>Telefono</h1></th>
       <th><h1>Dirección</h1></th>
-      <th><h1>Editar</h1></th>
-      <th><h1>Bloquear</h1></th>
 		</tr>
 	</thead>
 	<tbody>
   <?php
   //esta linea recorre la base de datos, TODOS LOS DATOS
-    while($datos=mysqli_fetch_array($result)){
+  while($datos=mysqli_fetch_array($result)){
   ?>
 		<tr>
-      <td style="display:none;"><?php echo $datos['idUsuario'] ?></td>
-			<td><?php echo $datos['Nombre'] ?></td>
-			<td><?php echo $datos['Apaterno'] ?></td>
-      <td><?php echo $datos['Rut'] ?></td>
-      <td><?php echo $datos['Correo'] ?></td>
-      <td><?php echo $datos['Telefono'] ?></td>
-      <td><?php echo $datos['Direccion'] ?></td>
-      <td><a href="P_A_usu.php?idUsuario=<?php echo $datos['idUsuario']?>" values="boton">Actualizar</a></td>
-      <td><a href="procesar_borrar.php?idUsuario=<?php echo $datos['idUsuario']?>" values="boton" name="id">Borrar</a></td>
+            <input type="hidden" value="<?php echo $datos['idUsuario']?>" name=id>
+            <td><input type="text" value="<?php echo $datos['Nombre'] ?>" name="nom"></td>
+            <td><input type="text" value="<?php echo $datos['Apaterno'] ?>" name="ape"></td>
+            <td><input type="text" value="<?php echo $datos['Rut'] ?>" name="rut"></td>
+            <td><input type="text" value="<?php echo $datos['Correo'] ?>" name="email"></td>
+            <td><input type="text" value="<?php echo $datos['Telefono'] ?>" name="tel"></td>
+            <td><input type="text" value="<?php echo $datos['Direccion'] ?>" name="dir"></td>
+            
 		</tr>
    <?php
       }
    ?>
 	</tbody>
 </table>
+<center><input class="button" type="submit" value="actualizar"></center>
 
+</form>
 </div>
 
 
