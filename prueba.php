@@ -84,6 +84,7 @@ $result=mysqli_query($conn, $sql);
 <table class="container">
   
   <h2 class="usuarios">USUARIOS</h2><br><br>
+  <a href="usu_bloqueados.php" values="boton" name="id">uasuarios bloqueados</a>
 	<thead>
    
 		<tr>
@@ -101,6 +102,7 @@ $result=mysqli_query($conn, $sql);
   <?php
   //esta linea recorre la base de datos, TODOS LOS DATOS
     while($datos=mysqli_fetch_array($result)){
+      if($datos['Estado']==1){
   ?>
 		<tr>
       <td style="display:none;"><?php echo $datos['idUsuario'] ?></td>
@@ -111,9 +113,10 @@ $result=mysqli_query($conn, $sql);
       <td><?php echo $datos['Telefono'] ?></td>
       <td><?php echo $datos['Direccion'] ?></td>
       <td><a href="P_A_usu.php?idUsuario=<?php echo $datos['idUsuario']?>" values="boton">Actualizar</a></td>
-      <td><a href="procesar_borrar.php?idUsuario=<?php echo $datos['idUsuario']?>" values="boton" name="id">Borrar</a></td>
+      <td><a href="procesar_borrar.php?idUsuario=<?php echo $datos['idUsuario']?>" values="boton">Bloquear</a></td>
 		</tr>
    <?php
+      }
       }
    ?>
 	</tbody>
