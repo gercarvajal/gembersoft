@@ -33,32 +33,48 @@
             <h2 class="title">Registrarse</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input name="txtnombre"type="text" placeholder="Nombre Completo" />
+              <input name="txtnombre" type="text" placeholder="Nombre Completo" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input name="txtapaterno" type="text" placeholder="Apellido Paterno" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input name="txtamaterno" type="text" placeholder="Apellido Materno" />
             </div>
             <div class="input-field">
               <i class="fas fa-address-card"></i>
-              <input name="txtrut"type="text" placeholder="RUT" />
+              <input name="txtrut" type="text" placeholder="RUT" />
             </div>
             <div class="input-field">
               <i class="fas fa-hashtag"></i>
-              <input name="txtdireccion"type="text" placeholder="Dirección" />
+              <input name="txtdireccion" type="text" placeholder="Dirección" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-hashtag"></i>
+              <input name="txtndirec" type="text" placeholder="Numero de Dirección " />
             </div>
             <div class="input-field">
               <i class="fas fa-phone-alt"></i>
-              <input name="txttelefono"type="number" placeholder="Teléfono" />
+              <input name="txttel" type="text" placeholder="Teléfono" />
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input name="txtemail"type="email" placeholder="Email" />
+              <input name="txtcorreo" type="email" placeholder="Email" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input name="txtclave"type="password" placeholder="Contraseña" />
+              <input name="txtpassword" type="password" placeholder="Contraseña" />
             </div>
             <input type="submit" class="btn" value="Registrarse" />
           </form>
         </div>
       </div>
+
+
+
+
 
       <div class="panels-container">
         <div class="panel left-panel">

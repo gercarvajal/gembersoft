@@ -72,6 +72,7 @@ svg {
 
 body {
   font: 16px/1.5 "Lato", sans-serif;
+  overflow:hidden;
 }
 
 
@@ -296,9 +297,11 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 30px;
+  
 }
 
 .page-content .grid > article {
+  
   display: flex;
   height: 300px;
   background: var(--page-content-blockColor);
