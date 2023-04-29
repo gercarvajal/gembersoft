@@ -17,9 +17,15 @@
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
 
+        const backgroundImage = new Image();
+        backgroundImage.src = 'resource/images/Conjunto/model1.png';
+        backgroundImage.onload = function() {
+            // Dibujar la imagen de fondo en el canvas
+            ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+        }
+
         // Cargar las imágenes
         const imgBg = new Image();
-        imgBg.src = 'imagen_de_fondo.png';
         const img = new Image();
         img.src = 'perro.png';
         img.onload = function() {
@@ -27,7 +33,8 @@
           ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         };
         
-
+        
+		
         // Variables para el control de la transformación
         let isDragging = false;
         let lastX = 0;
@@ -63,7 +70,10 @@
           if (scale < 0.1) {
             scale = 0.1;
           }
+          
           redraw();
+          
+          
         });
 
         // Agregar evento de clic al botón de descarga
@@ -75,12 +85,18 @@
         // Función para dibujar la imagen en el canvas con la transformación
         function redraw() {
           ctx.clearRect(0, 0, canvas.width, canvas.height);
+          //SE DEJA ESTATICA LA IMAGEN DEL PERRO 
+          ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
           ctx.save();
           ctx.translate(offsetX, offsetY);
           ctx.scale(scale, scale);
+          
           ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            
           ctx.restore();
         }
+
+       
 
         // Función para descargar el contenido del canvas en forma de imagen
         function downloadCanvas() {
