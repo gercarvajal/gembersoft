@@ -8,9 +8,10 @@
 </head>
 
 <body>
-    <canvas id="canvas" width="1500" height="800"></canvas>
+    <canvas id="canvas" width="1500" height="800" style="border: 1px solid black"></canvas>
 
     <button id="download-btn">Descargar imagen</button>
+    <p>Para mover la imagen es sensillo solo rtienes que clickearla y arrastrarl, para ajustar el tamano solo debes mover el scrool del mouse</p>
 
     <script>
         const canvas = document.getElementById('canvas');
