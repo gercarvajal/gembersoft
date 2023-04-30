@@ -45,11 +45,13 @@ var app;
                 });
             };
             this.addText = () => {
+                let fontSelect = document.getElementById('font-select');
+                let font = fontSelect.options[fontSelect.selectedIndex].value;
                 let text = new fabric.IText('Sample Text', {
                     left: this.canvas.width / 2,
                     top: this.canvas.height / 2,
                     fill: '#e0f7fa',
-                    fontFamily: 'sans-serif',
+                    fontFamily: font,
                     hasRotatingPoint: false,
                     centerTransform: true,
                     originX: 'center',
