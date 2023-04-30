@@ -77,6 +77,18 @@ var app;
                     strokeWidth: 0
                 }));
             };
+            this.addRectdefault = () => {
+                this.canvas.add(new fabric.Rect({
+                    left: this.canvas.width / 2,
+                    top: this.canvas.height / 2,
+                    fill: '#fafafa',
+                    width: 300,
+                    height: 500,
+                    originX: 'center',
+                    originY: 'center',
+                    strokeWidth: 0
+                }));
+            };
             this.addCircle = () => {
                 this.canvas.add(new fabric.Circle({
                     left: this.canvas.width / 2,
@@ -159,7 +171,11 @@ var app;
                 this.canvas.requestRenderAll();
             };
             this.initCanvas();
-            this.addText();
+            //this.addText();
+            //this.addImage();
+            //this.addCircle();
+            this.addRectdefault();
+
             this.canvas.setActiveObject(this.canvas.item(0));
             window.addEventListener('resize', this.onWindowResize);
         }
