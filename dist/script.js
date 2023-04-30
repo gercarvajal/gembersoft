@@ -64,42 +64,6 @@ var app;
                 });
             };
             
-            
-            this.addRect = () => {
-                this.canvas.add(new fabric.Rect({
-                    left: this.canvas.width / 2,
-                    top: this.canvas.height / 2,
-                    fill: '#ffa726',
-                    width: 100,
-                    height: 100,
-                    originX: 'center',
-                    originY: 'center',
-                    strokeWidth: 0
-                }));
-            };
-            this.addCircle = () => {
-                this.canvas.add(new fabric.Circle({
-                    left: this.canvas.width / 2,
-                    top: this.canvas.height / 2,
-                    fill: '#26a69a',
-                    radius: 50,
-                    originX: 'center',
-                    originY: 'center',
-                    strokeWidth: 0
-                }));
-            };
-            this.addTriangle = () => {
-                this.canvas.add(new fabric.Triangle({
-                    left: this.canvas.width / 2,
-                    top: this.canvas.height / 2,
-                    fill: '#78909c',
-                    width: 100,
-                    height: 100,
-                    originX: 'center',
-                    originY: 'center',
-                    strokeWidth: 0
-                }));
-            };
             this.addImage = (ev) => {
                 let input = document.createElement('input');
                 input.type = 'file';
@@ -115,8 +79,18 @@ var app;
                     };
                     reader.readAsDataURL(file);
                 };
+                
                 input.click();
             };
+
+            this.addImageFromRepo = () => {
+                let imgUrl = 'resource/images/Lapidas/model1.png'; // reemplaza esto con la ruta de tu imagen
+                let img = new fabric.Image();
+                img.setSrc(imgUrl, () => {
+                  this.canvas.add(img);
+                });
+              };
+
             this.remove = () => {
                 let activeObjects = this.canvas.getActiveObjects();
                 this.canvas.discardActiveObject();
