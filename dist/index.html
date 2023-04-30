@@ -16,27 +16,20 @@
       <canvas id="c"></canvas>
     </div>
     <div flex>
-      <h2 style="text-align: center;">Editar Lapida</h2>
+      <h2 style="text-align: center;">Toolbox</h2>
       <div>
-        
-        <md-button class="md-raised" ng-click="main.addText()">Agregar Texto
+        <md-button class="md-raised" ng-click="main.addText()">Add Text
         </md-button>
-
-        <select id="font-select">
-          <option value="Arial">Arial</option>
-          <option value="Helvetica">Helvetica</option>
-          <option value="Times New Roman">Times New Roman</option>
-          <option value="Georgia">Georgia</option>
-          <option value="Courier New">Courier New</option>
-      </select>
-        
-        <md-button class="md-raised" ng-click="main.addImage($event)">Agregar Imagen
+        <md-button class="md-raised" ng-click="main.addRect()">Add Rectangle
         </md-button>
-        <md-button class="md-raised md-warn" ng-click="main.remove()">Eliminar
+        <md-button class="md-raised" ng-click="main.addCircle()">Add Circle
         </md-button>
-
-        
-
+        <md-button class="md-raised" ng-click="main.addTriangle()">Add Triangle
+        </md-button>
+        <md-button class="md-raised" ng-click="main.addImage($event)">Add Image
+        </md-button>
+        <md-button class="md-raised md-warn" ng-click="main.remove()">Remove
+        </md-button>
       </div>
       <div ng-show="main.activeObject" class="property-box">
         <div ng-show="main.activeObject.type !== 'image'">
@@ -48,7 +41,7 @@
         </div>
         <div>
           <md-slider-container>
-            <span>Opacidad</span>
+            <span>Opacity</span>
             <md-slider
                        ng-model="main.opacity"
                        ng-change="main.setOpacity()"

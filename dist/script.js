@@ -45,13 +45,11 @@ var app;
                 });
             };
             this.addText = () => {
-                let fontSelect = document.getElementById('font-select');
-                let font = fontSelect.options[fontSelect.selectedIndex].value;
                 let text = new fabric.IText('Sample Text', {
                     left: this.canvas.width / 2,
                     top: this.canvas.height / 2,
                     fill: '#e0f7fa',
-                    fontFamily: font,
+                    fontFamily: 'sans-serif',
                     hasRotatingPoint: false,
                     centerTransform: true,
                     originX: 'center',
@@ -63,7 +61,41 @@ var app;
                     this.$scope.$evalAsync();
                 });
             };
-            
+            this.addRect = () => {
+                this.canvas.add(new fabric.Rect({
+                    left: this.canvas.width / 2,
+                    top: this.canvas.height / 2,
+                    fill: '#ffa726',
+                    width: 100,
+                    height: 100,
+                    originX: 'center',
+                    originY: 'center',
+                    strokeWidth: 0
+                }));
+            };
+            this.addCircle = () => {
+                this.canvas.add(new fabric.Circle({
+                    left: this.canvas.width / 2,
+                    top: this.canvas.height / 2,
+                    fill: '#26a69a',
+                    radius: 50,
+                    originX: 'center',
+                    originY: 'center',
+                    strokeWidth: 0
+                }));
+            };
+            this.addTriangle = () => {
+                this.canvas.add(new fabric.Triangle({
+                    left: this.canvas.width / 2,
+                    top: this.canvas.height / 2,
+                    fill: '#78909c',
+                    width: 100,
+                    height: 100,
+                    originX: 'center',
+                    originY: 'center',
+                    strokeWidth: 0
+                }));
+            };
             this.addImage = (ev) => {
                 let input = document.createElement('input');
                 input.type = 'file';
@@ -82,15 +114,6 @@ var app;
                 
                 input.click();
             };
-
-            this.addImageFromRepo = () => {
-                let imgUrl = 'resource/images/Lapidas/model1.png'; // reemplaza esto con la ruta de tu imagen
-                let img = new fabric.Image();
-                img.setSrc(imgUrl, () => {
-                  this.canvas.add(img);
-                });
-              };
-
             this.remove = () => {
                 let activeObjects = this.canvas.getActiveObjects();
                 this.canvas.discardActiveObject();
@@ -133,11 +156,7 @@ var app;
                 this.canvas.requestRenderAll();
             };
             this.initCanvas();
-            //this.addText();
-            //this.addImage();
-            //this.addCircle();
-            this.addRectdefault();
-
+            this.addText();
             this.canvas.setActiveObject(this.canvas.item(0));
             window.addEventListener('resize', this.onWindowResize);
         }
