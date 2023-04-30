@@ -50,7 +50,7 @@ var app;
                 let text = new fabric.IText('Sample Text', {
                     left: this.canvas.width / 2,
                     top: this.canvas.height / 2,
-                    fill: '#e0f7fa',
+                    fill: '#212121',
                     fontFamily: font,
                     hasRotatingPoint: false,
                     centerTransform: true,
@@ -70,6 +70,18 @@ var app;
                     fill: '#ffa726',
                     width: 100,
                     height: 100,
+                    originX: 'center',
+                    originY: 'center',
+                    strokeWidth: 0
+                }));
+            };
+            this.addRectdefault = () => {
+                this.canvas.add(new fabric.Rect({
+                    left: this.canvas.width / 2,
+                    top: this.canvas.height / 2,
+                    fill: '#fafafa',
+                    width: 350,
+                    height: 500,
                     originX: 'center',
                     originY: 'center',
                     strokeWidth: 0
@@ -158,7 +170,8 @@ var app;
                 this.canvas.requestRenderAll();
             };
             this.initCanvas();
-            this.addText();
+            //this.addText();
+            this.addRectdefault();
             this.canvas.setActiveObject(this.canvas.item(0));
             window.addEventListener('resize', this.onWindowResize);
         }
