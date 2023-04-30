@@ -133,7 +133,11 @@ var app;
                 this.canvas.requestRenderAll();
             };
             this.initCanvas();
-            this.addText();
+            //this.addText();
+            //this.addImage();
+            //this.addCircle();
+            this.addRectdefault();
+
             this.canvas.setActiveObject(this.canvas.item(0));
             window.addEventListener('resize', this.onWindowResize);
         }
