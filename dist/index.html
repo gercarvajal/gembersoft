@@ -18,17 +18,8 @@
     <div flex>
       <h2 style="text-align: center;">Editar Lapida</h2>
       <div>
+        
         <md-button class="md-raised" ng-click="main.addText()">Agregar Texto
-        </md-button>
-        <md-button class="md-raised" ng-click="main.addRect()">Add Rectangle
-        </md-button>
-        <md-button class="md-raised" ng-click="main.addCircle()">Add Circle
-        </md-button>
-        <md-button class="md-raised" ng-click="main.addTriangle()">Add Triangle
-        </md-button>
-        <md-button class="md-raised" ng-click="main.addImage($event)">Agregar Imagen
-        </md-button>
-        <md-button class="md-raised md-warn" ng-click="main.remove()">Remove
         </md-button>
 
         <select id="font-select">
@@ -38,6 +29,13 @@
           <option value="Georgia">Georgia</option>
           <option value="Courier New">Courier New</option>
       </select>
+        
+        <md-button class="md-raised" ng-click="main.addImage($event)">Agregar Imagen
+        </md-button>
+        <md-button class="md-raised md-warn" ng-click="main.remove()">Eliminar
+        </md-button>
+
+        
 
       </div>
       <div ng-show="main.activeObject" class="property-box">
@@ -50,7 +48,7 @@
         </div>
         <div>
           <md-slider-container>
-            <span>Opacity</span>
+            <span>Opacidad</span>
             <md-slider
                        ng-model="main.opacity"
                        ng-change="main.setOpacity()"
