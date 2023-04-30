@@ -45,22 +45,26 @@ var app;
                 });
             };
             this.addText = () => {
-                let text = new fabric.IText('Sample Text', {
-                    left: this.canvas.width / 2,
-                    top: this.canvas.height / 2,
-                    fill: '#e0f7fa',
-                    fontFamily: 'sans-serif',
-                    hasRotatingPoint: false,
-                    centerTransform: true,
-                    originX: 'center',
-                    originY: 'center',
-                    lockUniScaling: true
-                });
-                this.canvas.add(text);
-                text.on('scaling', () => {
-                    this.$scope.$evalAsync();
-                });
+                let font = prompt('Please enter a font name:', 'Arial');
+                if (font) {
+                    let text = new fabric.IText('Sample Text', {
+                        left: this.canvas.width / 2,
+                        top: this.canvas.height / 2,
+                        fill: '#e0f7fa',
+                        fontFamily: font,
+                        hasRotatingPoint: false,
+                        centerTransform: true,
+                        originX: 'center',
+                        originY: 'center',
+                        lockUniScaling: true
+                    });
+                    this.canvas.add(text);
+                    text.on('scaling', () => {
+                        this.$scope.$evalAsync();
+                    });
+                }
             };
+            
             this.addRect = () => {
                 this.canvas.add(new fabric.Rect({
                     left: this.canvas.width / 2,
