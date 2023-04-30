@@ -97,19 +97,21 @@ var app;
                 }));
             };
             this.addImage = (ev) => {
-                let confirm = this.dlg.prompt()
-                    .title('Add Image')
-                    .textContent('Copy and paste link of the image:')
-                    .placeholder('http://myimageurl.com')
-                    .ariaLabel('Image Url')
-                    .targetEvent(ev)
-                    .ok('Ok')
-                    .cancel('Cancel');
-                this.dlg.show(confirm).then((result) => {
-                    fabric.Image.fromURL(result, (img) => {
-                        this.canvas.add(img);
-                    });
-                });
+                let input = document.createElement('input');
+                input.type = 'file';
+                input.accept = 'image/*';
+                input.onchange = (e) => {
+                    let file = e.target.files[0];
+                    let reader = new FileReader();
+                    reader.onload = (event) => {
+                        let img = new fabric.Image();
+                        img.setSrc(event.target.result, () => {
+                            this.canvas.add(img);
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                };
+                input.click();
             };
             this.remove = () => {
                 let activeObjects = this.canvas.getActiveObjects();
