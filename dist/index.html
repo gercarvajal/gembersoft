@@ -16,27 +16,40 @@
       <canvas id="c"></canvas>
     </div>
     <div flex>
+      <br><br>
       <h2 style="text-align: center;">Personalizar Lapida</h2>
+      <br><br><br>
       <div>
+        <center>
         <md-button class="md-raised" ng-click="main.addText()">Agregar Texto
         </md-button>
-        <select id="font-select">
-          <option value="Arial">Arial</option>
-          <option value="Helvetica">Helvetica</option>
-          <option value="Times New Roman">Times New Roman</option>
-          <option value="Georgia">Georgia</option>
-          <option value="Courier New">Courier New</option>
-      </select>
+       <!-- partial:index.partial.html 
         <md-button class="md-raised" ng-click="main.addRect()">Add Rectangle
         </md-button>
         <md-button class="md-raised" ng-click="main.addCircle()">Add Circle
         </md-button>
         <md-button class="md-raised" ng-click="main.addTriangle()">Add Triangle
         </md-button>
+        -->
         <md-button class="md-raised" ng-click="main.addImage($event)">Agregar Imagen
         </md-button>
+
+      </center>
+    <br>
+        <center>
+          <select id=font-select class="select-css">
+           
+              <option value="Arial">Arial</option>
+              <option value="Helvetica">Helvetica</option>
+              <option value="Times New Roman">Times New Roman</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Courier New">Courier New</option>
+         
+        </select>
+        <br>
         <md-button class="md-raised md-warn" ng-click="main.remove()">Quitar
         </md-button>
+      </center>
       </div>
       <div ng-show="main.activeObject" class="property-box">
         <div ng-show="main.activeObject.type !== 'image'">
@@ -44,11 +57,12 @@
             <div class="colorbox" ng-style="main.getStyle()">
             </div>
           </md-color-menu>
-          <span>Fill: {{main.activeObject.fill}}</span>
+          <span>Color: {{main.activeObject.fill}}</span>
         </div>
         <div>
           <md-slider-container>
-            <span>Opacity</span>
+            <span>Opacidad</span>
+            
             <md-slider
                        ng-model="main.opacity"
                        ng-change="main.setOpacity()"
@@ -64,20 +78,24 @@
             </md-input-container>
           </md-slider-container>
         </div>
+        
         <div layout="row">
+          
           <md-button class="md-raised btn-sm" ng-click="main.activeObject.bringForward()">↑
-            <md-tooltip md-direction="bottom">Bring forward</md-tooltip>
+            <md-tooltip md-direction="bottom">Subir</md-tooltip>
           </md-button>
           <md-button class="md-raised btn-sm" ng-click="main.activeObject.bringToFront()">⇑
-            <md-tooltip md-direction="bottom">Bring to front</md-tooltip>
+            <md-tooltip md-direction="bottom">Enviar al frente</md-tooltip>
           </md-button>
           <md-button class="md-raised btn-sm" ng-click="main.activeObject.sendBackwards()">↓
-            <md-tooltip md-direction="bottom">Send backwards</md-tooltip>
+            <md-tooltip md-direction="bottom">Bajar</md-tooltip>
           </md-button>
           <md-button class="md-raised btn-sm" ng-click="main.activeObject.sendToBack()">⇓
-            <md-tooltip md-direction="bottom">Send to back</md-tooltip>
+            <md-tooltip md-direction="bottom">Enviar al fondo</md-tooltip>
           </md-button>
+        
         </div>
+        
       </div>
       <div ng-show="main.activeObject.type === 'i-text'" class="property-box">
         <div>
