@@ -123,13 +123,6 @@ $result=mysqli_query($conn, $sql);
 </table>
 
 </div>
-
-
-
-
-
-
-
   </section>
   <footer class="page-footer">
    
