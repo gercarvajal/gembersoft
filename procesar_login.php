@@ -1,5 +1,5 @@
 <?php
-include 'conexion.php';//llamo a la conexion
+include 'setup.php';//llamo a la conexion
 
 session_start();
 //mala tu wea no sirve 
