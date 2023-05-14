@@ -16,7 +16,7 @@
       <div class="forms-container">
         <div class="signin-signup">
 
-          <form method="post" action="procesar_login.php" class="sign-in-form">
+          <form method="post" action="procesalogin.php" class="sign-in-form">
             <h2 class="title">Bienvenido</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -29,6 +29,11 @@
             <a href="#">Recuperar Clave</a>
             <input type="submit" value="Conectar" class="btn solid" />
           </form>
+        
+
+
+
+
           <form method="post"action="procesausuario.php" class="sign-up-form">
             <h2 class="title">Registrarse</h2>
             <div class="input-field">

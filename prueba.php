@@ -1,10 +1,7 @@
 <?php
 //conectamos la bd
-include 'conexion.php';
-//llamamos la tabla de la bd
-$sql="SELECT * FROM usuario";
-//comparamos para mostrar resultados 
-$result=mysqli_query($conn, $sql);
+include 'functions/setup.php';
+
 ?>  
 
 <!DOCTYPE html>
@@ -83,45 +80,78 @@ $result=mysqli_query($conn, $sql);
 
 <table class="container">
   
-  <h2 class="usuarios">USUARIOS</h2><br><br>
-  <a href="usu_bloqueados.php" values="boton" name="id">uasuarios bloqueados</a>
-	<thead>
-   
-		<tr>
-			<th><h1>Nombre</h1></th>
-      <th><h1>Apellido</h1></th>
-			<th><h1>Rut</h1></th>
-			<th><h1>Correo</h1></th>
-			<th><h1>Telefono</h1></th>
-      <th><h1>Dirección</h1></th>
-      <th><h1>Editar</h1></th>
-      <th><h1>Bloquear</h1></th>
-		</tr>
-	</thead>
-	<tbody>
-  <?php
-  //esta linea recorre la base de datos, TODOS LOS DATOS
-    while($datos=mysqli_fetch_array($result)){
-      if($datos['Estado']==1){
-  ?>
-		<tr>
-      <td style="display:none;"><?php echo $datos['idUsuario'] ?></td>
-			<td><?php echo $datos['Nombre'] ?></td>
-			<td><?php echo $datos['Apaterno'] ?></td>
-      <td><?php echo $datos['Rut'] ?></td>
-      <td><?php echo $datos['Correo'] ?></td>
-      <td><?php echo $datos['Telefono'] ?></td>
-      <td><?php echo $datos['Direccion'] ?></td>
-      <td><a href="P_A_usu.php?idUsuario=<?php echo $datos['idUsuario']?>" values="boton">Actualizar</a></td>
-      <td><a href="procesar_borrar.php?idUsuario=<?php echo $datos['idUsuario']?>" values="boton">Bloquear</a></td>
-		</tr>
-   <?php
-      }
-      }
-   ?>
-	</tbody>
-</table>
+  <div class="row">
+          <div class="col-md-12 mb-3">
+            <div class="card">
+              <div class="card-header">
+                <span><i class="bi bi-table me-2"></i></span> Usuarios registrado
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table
+                    id="example"
+                    class="table table-striped data-table"
+                    style="width: 100%"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Nombre</th>
+                      <th>Rut</th>
+                      <th>Direccion</th>
+                      <th>Correo</th>
+                      <th>NumeroDireccion</th>
+                      <th>Telefono</th>
+                      <th>Estado</th>
+                      </tr>
+                    </thead>
 
+                      
+                    <tbody>
+
+                    
+                    <?php
+                $sql = "SELECT
+                usuario.Rut,
+                usuario.Nombre,
+                usuario.Direccion,
+                usuario.NumeroDire,
+                usuario.Estado,
+                usuario.Correo,
+                usuario.Apaterno
+              FROM
+                usuario";
+                $result = mysqli_query(conexion(), $sql);
+                while ($datospe = mysqli_fetch_array($result)) {
+                ?>
+                     <td><?php echo $datospe['Nombre']; ?><br><?php echo $datospe['Apaterno']; ?></td>
+                      <td><?php echo $datospe['Rut']; ?></td>
+                      <td><?php echo $datospe['Direccion']; ?></td>
+                      <td><?php echo $datospe['Correo']; ?></td>
+                      <td><?php echo $datospe['NumeroDire']; ?></td>
+                      <td><?php echo $datospe['Telefono']; ?></td>
+                    <td>
+                      <?php
+                      if ($datos['Estado'] == 0) {
+                      ?>
+                        <h1>inactivo</h1>
+                      <?php
+                      } else {
+                      ?>
+                        <H1>Activo</H1>
+                      <?php
+                      }
+
+                      ?>
+                    </td>
+                  
+                  
+                <?php
+                }
+                ?>
+                     
+                    </tbody>
+                  
+                  </table>
 </div>
   </section>
   <footer class="page-footer">
