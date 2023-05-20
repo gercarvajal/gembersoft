@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <!--responsive.css-->
         <link rel="stylesheet" href="assets/css/responsive.css">   
+		<link rel="stylesheet" href="carr.css" />
     </head>
 	
 	<body>	
@@ -103,6 +104,48 @@
 		</header><!--/.welcome-hero-->
 		<!--welcome-hero end -->
 
+
+
+
+
+
+	<br><br><br><br>
+
+	<?php
+                       include 'conexion.php';
+                       $sql="SELECT * FROM fotos LIMIT 5";
+                       
+                       $result=mysqli_query($conn, $sql);
+                       
+                       while($datos=mysqli_fetch_array($result)){
+                       ?>
+		
+		<div class="containerr">
+      <div class="panel active" style="background-image: url('<?php echo $datos['foto1']?>')">
+        <h3>peroo</h3>
+      </div>
+    </div>
+	<?php
+                   
+				}
+			 ?>
+		<script src="carr.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<!--Productos-->
 		<section id="new-arrivals" class="new-arrivals">
 			<div class="container">
@@ -151,6 +194,14 @@
 		
 		</section><!--/.new-arrivals-->
 		<!--new-arrivals end -->
+
+
+  
+
+
+
+
+
 
 
 
