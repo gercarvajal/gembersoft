@@ -4,15 +4,22 @@
   box-sizing: border-box;
 }
 
+.poto {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
 
 .containerr {
-    top: 100%;
   display: flex;
   width: 90vw;
 }
 
 .panel {
-    
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -45,7 +52,7 @@
 }
 
 @media (max-width: 480px) {
-  .container {
+  .containerr {
     width: 100vw;
   }
 
