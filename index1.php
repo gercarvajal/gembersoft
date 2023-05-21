@@ -1,3 +1,6 @@
+<?php
+include("functions/setup.php");
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -49,7 +52,25 @@
 					<div class="item active">
 						<div class="single-slide-item slide1">
 							<div class="container">
-								<div class="welcome-hero-content">
+							<?php
+									$sql = "SELECT
+									producto.idProducto,
+									fotos.idFotos,
+									fotos.Ruta,
+									producto.Nombre,
+									producto.Descripccion,
+									producto.Precio
+									FROM
+									fotos
+									INNER JOIN producto ON producto.idProducto =
+									fotos.Producto_idProducto";
+									$result = mysqli_query(conexion(), $sql);
+									?>  
+									<?php
+										while ($datosimg = mysqli_fetch_array($result)) {
+													?>
+
+							<div class="welcome-hero-content">
 									<div class="row">
 										<div class="col-sm-7">
 											<div class="single-welcome-hero">
@@ -77,13 +98,28 @@
 										</div><!--/.col-->
 										<div class="col-sm-5">
 											<div class="single-welcome-hero">
-												<div class="welcome-hero-img">
-													<img src="resource/images/Conjunto/model1.png" alt="slider image">
+												
+											
+											
+											
+											<div class="welcome-hero-img">
+													<img src="resource/imgproductos/<?php echo $datosimg['Ruta']; ?>" alt="slider image">
 												</div><!--/.welcome-hero-txt-->
 											</div><!--/.single-welcome-hero-->
 										</div><!--/.col-->
 									</div><!--/.row-->
 								</div><!--/.welcome-hero-content-->
+
+										<?php
+										}
+									?>
+
+													<?php
+												
+										?>
+								
+								
+							
 							</div><!-- /.container-->
 						</div><!-- /.single-slide-item-->
 

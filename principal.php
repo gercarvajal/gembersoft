@@ -111,7 +111,7 @@ if (isset($_SESSION['usuario'])) {
             </li>
 
             <li>
-              <a href="fotos.php" class="nav-link px-3">
+              <a href="AgregarProducto.php" class="nav-link px-3">
                 <span class="me-2"><i class="bi bi-images"></i></span>
                 <span>productos</span>
               </a>
