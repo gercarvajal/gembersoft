@@ -109,27 +109,56 @@
 
 
 
-	<br><br><br><br>
-
-	<?php
-                       include 'conexion.php';
-                       $sql="SELECT * FROM fotos LIMIT 5";
-                       
-                       $result=mysqli_query($conn, $sql);
-                       
-                       while($datos=mysqli_fetch_array($result)){
-                       ?>
-		
-		<div class="containerr">
-      <div class="panel active" style="background-image: url('<?php echo $datos['foto1']?>')">
-        <h3>peroo</h3>
-      </div>
+	<br><br>
+	<div class="poto">
+  <div class="containerr">
+    <!-- AQUÍ INICIA CON LA PRIMERA IMAGEN QUE VA ESTÁTICA -->
+    <div class="panel active" style="background-image: url('https://images.unsplash.com/photo-1558979158-65a1eaa08691?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')">
+      <h3>Explore The World</h3>
     </div>
-	<?php
-                   
-				}
-			 ?>
-		<script src="carr.js"></script>
+
+    <!-- EN ESTA PARTE ESTÁ LA LLAMADA A LA BD SOLO DE LAS PRIMERAS 5 FOTOS -->
+    <?php
+    include 'conexion.php';
+    $sql = "SELECT
+	fotos.Ruta AS Ruta1,
+	producto.idProducto,
+	fotos.Producto_idProducto AS Producto_idProducto1,
+	producto.Descripccion,
+	producto.Estado,
+	producto.Precio,
+	producto.Nombre,
+	producto.Tipo,
+	producto.*
+  FROM
+	fotos
+	INNER JOIN producto ON fotos.Producto_idProducto =
+	  producto.idProducto LIMIT 5";
+    $result = mysqli_query($conn, $sql);
+    while ($datos = mysqli_fetch_array($result)) {
+    ?>
+      <div class="panel" >
+	  <img style=" background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  -webkit-transition: all 700ms ease-in;" src="resource\imgproductos\<?php echo $datos['Ruta1'] ?>" alt="new-arrivals images">
+        <h3><?php echo $datos['Producto_idProducto1'] ?></h3>
+      </div>
+    <?php
+    }
+    ?>
+  </div>
+  <!-- SE LLAMA AL SCRIPT -->
+  <script src="carr.js"></script>
+</div>
 
 
 
@@ -138,16 +167,6 @@
 
 
 
-
-
-
-
-
-
-
-
-		<!--Productos-->
-		<section id="new-arrivals" class="new-arrivals">
 			<div class="container">
 				<div class="section-header">
 					<h2>Tipos Productos</h2>
@@ -156,37 +175,49 @@
 					<div class="row">
 
 
+					<?php
+						include 'conexion.php';
+						$sql="SELECT
+						fotos.Ruta AS Ruta1,
+						producto.idProducto,
+						fotos.Producto_idProducto AS Producto_idProducto1,
+						producto.Descripccion,
+						producto.Estado,
+						producto.Precio,
+						producto.Nombre,
+						producto.Tipo,
+						producto.*
+					  FROM
+						fotos
+						INNER JOIN producto ON fotos.Producto_idProducto =
+						  producto.idProducto LIMIT 4";
+						$result=mysqli_query($conn, $sql);
+						while($datos=mysqli_fetch_array($result)){
+					?>
+
+
 						<!--Productos aqui -->
 						<div class="col-md-3 col-sm-4">
 							<div class="single-new-arrival">
 								<div class="single-new-arrival-bg">
-									<img src="resource/images/conjunto/model1.png" alt="new-arrivals images">
+
+									<img src="resource\imgproductos\<?php echo $datos['Ruta1'] ?>" alt="new-arrivals images">
+									
 									<div class="single-new-arrival-bg-overlay"></div>
 									<div class="sale bg-1">
-										<p>Lapidas</p>
+										<p><?php echo $datos['Tipo']?></p>
 									</div>
 								
 								</div>
-								<h4><a href="B.html">Lapidas</a></h4>
-								<p class="arrival-product-price">$650.00</p>
-							</div>
-						</div>
-						<div class="col-md-3 col-sm-4">
-							<div class="single-new-arrival">
-								<div class="single-new-arrival-bg">
-									<img src="resource/images/conjunto/model1.png" alt="new-arrivals images">
-									<div class="single-new-arrival-bg-overlay"></div>
-									<div class="sale bg-1">
-										<p>Lapidas</p>
-									</div>
-								</div>
-								<h4><a href="B.html">Lapidas</a></h4>
-								<p class="arrival-product-price">$650.00</p>
+								<h4><a href="B.html"><?php echo $datos['Nombre']?></a></h4>
+								<p class="arrival-product-price"><?php echo $datos['Precio']?></p>
 							</div>
 						</div>
 						
-					
-						
+					<?php        
+				
+						}
+					?>
 	
 					</div>
 				</div>
